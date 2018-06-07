@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Person";
+}
+
+<div class="w3-padding w3-white notranslate">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var person in ViewBag.Persons)
+                {
+                    <tr>
+                        <td>@person.Name</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="form-group row">
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">ADD</button>
+
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <input id="input_name" class="form-control" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="add();">Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function add() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("AddPerson")",
+            data: JSON.stringify({
+                Name: $("#input_name").val()
+            }),
+            contentType: "application/json; charset=utf-8",
+            success: function () {
+                location.reload();
+            }
+        });
+
+        $("#myModal").hide();
+    }
+</script>
+
