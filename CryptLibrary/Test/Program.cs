@@ -12,9 +12,9 @@ namespace Test
         static void Main(string[] args)
         {
             ICryptService service = new Caesar();
-            string cr = service.Crypt("Hello world", 1);
+            string cr = service.Crypt("Hello world", "1");
             Console.WriteLine( cr);
-            string dcr = service.Decrypt(cr,1);
+            string dcr = service.Decrypt(cr,"2");
             Console.WriteLine(dcr);
         }
     }

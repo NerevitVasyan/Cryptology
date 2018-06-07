@@ -1,0 +1,27 @@
+﻿<Controls:MetroWindow x:Class="CryptView.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="MainWindow"
+                      Height="600"
+                      Width="800" GlowBrush="Blue" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="text" Controls:TextBoxHelper.Watermark="Input text for crypt" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
+        <StackPanel Grid.Column="1">
+            <Button  Style="{StaticResource  SquareButtonStyle}" Click="Button_Click">start crypt</Button>
+            <TextBox x:Name="key" Controls:TextBoxHelper.Watermark="key"></TextBox>
+            <Button Style="{StaticResource  SquareButtonStyle}" Click="Button_Click_1">start decrypt</Button>
+            <Controls:SplitButton x:Name="Combo">
+                
+            </Controls:SplitButton>
+        </StackPanel>
+        <TextBox x:Name="crtext" Grid.Column="2" Controls:TextBoxHelper.Watermark="Input text for crypt" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
+    </Grid>
+
+</Controls:MetroWindow>

@@ -10,7 +10,7 @@ namespace CryptLibrary.CryptServices
     {
         public string Crypt(string text, string key)
         {
-            
+            return null;
         }
 
         public string Decrypt(string text, string key)
